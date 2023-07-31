@@ -1,29 +1,39 @@
-function countdownTimeStart(){
-
-    var countDownDate = new Date("Sep 25, 2025 15:00:00").getTime();
-    
-    // Update the count down every 1 second
-    var x = setInterval(function() {
-    
-        // Get todays date and time
-        var now = new Date().getTime();
-        
-        // Find the distance between now an the count down date
-        var distance = countDownDate - now;
-        
-        // Time calculations for days, hours, minutes and seconds
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
-        // Output the result in an element with id="timer"
-        document.getElementById("timer").innerHTML = hours + "h "
-        + minutes + "m " + seconds + "s ";
-        
-        // If the count down is over, write some text 
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("timer").innerHTML = "EXPIRED";
-        }
-    }, 1000);
+document.addEventListener("DOMContentLoaded", function () {
+    const timerDisplay = document.getElementById("timer");
+    const startButton = document.getElementById("startButton");
+    const stopButton = document.getElementById("stopButton");
+  
+    let countdown;
+    let secondsRemaining = 3600;
+  
+    function updateTimer() {
+      const hours = Math.floor(secondsRemaining / 3600);
+      const minutes = Math.floor((secondsRemaining % 3600) / 60);
+      const seconds = secondsRemaining % 60;
+  
+      const formattedTime = `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+      timerDisplay.textContent = formattedTime;
     }
+  
+    function startTimer() {
+      countdown = setInterval(function () {
+        if (secondsRemaining > 0) {
+          secondsRemaining--;
+          updateTimer();
+        } else {
+          clearInterval(countdown);
+          alert("Time's up!");
+          // You can add additional actions to be performed when the timer reaches 00:00:00 here.
+        }
+      }, 1000);
+    }
+  
+    function stopTimer() {
+      clearInterval(countdown);
+      secondsRemaining = 3600;
+      updateTimer();
+    }
+  
+    startButton.addEventListener("click", startTimer);
+    stopButton.addEventListener("click", stopTimer);
+  });  
