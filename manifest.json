@@ -5,9 +5,13 @@
     "version": "1.0",
     "browser_action": 
     {
-        "default_icon": "assets/icon48.png",
+        "default_icon": "icon48.png",
+        
         "default_popup": "popup.html",   
         "permissions": ["activeTab", "alarm", "storage"],
+        "icons": 
+            "128.png",
+        
 
         "content_scripts": ["popup.js", "script.js","popup.css"]
 
