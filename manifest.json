@@ -1,5 +1,5 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "Workflow Timer",
     "description": "Timer with default duration of 1 hour (time-blocks)",
     "version": "1.0",
@@ -8,7 +8,16 @@
         "default_icon": "icon48.png",
         
         "default_popup": "popup.html",   
-        "permissions": ["activeTab", "alarm", "storage"],
+        "permissions": [
+            "activeTab", 
+            "alarm", 
+            "storage",
+            "tabs",
+            "bookmarks"
+        ],
+        "optional_permissions": [
+            "unlimitedStorage"
+          ],
         "icons": 
             "128.png",
         
