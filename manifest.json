@@ -3,8 +3,7 @@
     "name": "Workflow Timer",
     "description": "Timer with default duration of 1 hour (time-blocks)",
     "version": "1.0",
-    "browser_action": 
-    {
+    
         "default_icon": "icon48.png",
         
         "default_popup": "popup.html",   
@@ -24,7 +23,7 @@
 
         "content_scripts": ["popup.js", "script.js","popup.css"]
 
-    }
+    
     
 
 }
