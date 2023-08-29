@@ -1,5 +1,5 @@
 {
-    "manifest_version": 3,
+    "manifest_version": 2,
     "name": "Workflow Timer",
     "description": "Timer with default duration of 1 hour (time-blocks)",
     "version": "1.0",
