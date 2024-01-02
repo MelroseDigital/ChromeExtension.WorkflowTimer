@@ -1,30 +1,32 @@
-{
-    "manifest_version": 2,
-    "name": "Workflow Timer",
-    "description": "Timer with default duration of 1 hour (time-blocks)",
-    "version": "1.0",
-    "browser_action": 
     {
-        "default_icon": "icon48.png",
-        
-        "default_popup": "popup.html",   
-        "permissions": [
-            "activeTab", 
-            "alarm", 
-            "storage",
-            "tabs",
-            "bookmarks"
-        ],
-        "optional_permissions": [
-            "unlimitedStorage"
-          ],
-        "icons": 
-            "128.png",
-        
-
-        "content_scripts": ["popup.js", "script.js","popup.css"]
-
+  "manifest_version": 3,
+  "name": "Workflow Timer",
+  "description": "Timer with default duration of 1 hour (time-blocks)",
+  "version": "3.0",
+  "action": {
+    "default_icon": "icon48.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "alarms",
+    "storage",
+    "tabs",
+    "bookmarks"
+  ],
+  "optional_permissions": [
+    "unlimitedStorage"
+  ],
+  "icons": {
+    "128": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["popup.js", "script.js"],
+      "css": ["popup.css"]
     }
-    
-
+  ]
 }
